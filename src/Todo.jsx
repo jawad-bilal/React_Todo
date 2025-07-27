@@ -25,7 +25,20 @@ function Todo() {
     }
     setInput("");
   };
-
+  const Delete = (id) => {
+    setTodo(todo.filter((todo) => todo.id !== id));
+  };
+  const DoneAndUndo = (id) => {
+    const updatedTodos = todo.map((todo) =>
+      todo.id === id ? { ...todo, done: !todo.done } : todo
+    );
+    setTodo(updatedTodos);
+  };
+  const Edit = (id) => {
+    const toEdit = todo.find((todo) => todo.id === id);
+    setInput(toEdit.text);
+    setEditId(id);
+  };
   return (
     <div className="App">
       <h1>React Todo List</h1>
@@ -40,7 +53,9 @@ function Todo() {
       </form>
       <ol>
         {todo.map((todo) => (
-          <li key={todo.id}>
+          <li
+            key={todo.id}
+          >
             <span
               style={{
                 textDecoration: todo.done ? "line-through" : "none",
