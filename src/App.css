@@ -44,8 +44,8 @@ form button{
 }
 
 ol li {
-   list-style: none;
-   margin: "10px 0";
+   /* list-style: none; */
+   margin: 10px 0;
    list-style: upper-roman ;
 }
 
