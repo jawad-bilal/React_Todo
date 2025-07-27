@@ -25,7 +25,7 @@ function Todo() {
     }
     setInput("");
   };
-  
+
   return (
     <div className="App">
       <h1>React Todo List</h1>
@@ -40,9 +40,7 @@ function Todo() {
       </form>
       <ol>
         {todo.map((todo) => (
-          <li
-            key={todo.id}
-          >
+          <li key={todo.id}>
             <span
               style={{
                 textDecoration: todo.done ? "line-through" : "none",
@@ -50,10 +48,13 @@ function Todo() {
             >
               {todo.text}
             </span>
-            {/* <div>
-             
-
-            </div> */}
+            <div>
+              <button onClick={() => DoneAndUndo(todo.id)}>
+                {todo.done ? "Undo" : "Done"}
+              </button>
+              <button onClick={() => Edit(todo.id)}>Edit</button>
+              <button onClick={() => Delete(todo.id)}>Delete</button>
+            </div>
           </li>
         ))}
       </ol>
